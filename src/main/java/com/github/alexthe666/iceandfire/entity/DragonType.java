@@ -15,6 +15,7 @@ public class DragonType {
 
     public static final DragonType FIRE = new DragonType("fire");
     public static final DragonType ICE = new DragonType("ice").setPiscivore();
+    public static final DragonType LIGHTNING = new DragonType("lightning")
 
     private String name;
     private boolean piscivore;
@@ -45,6 +46,10 @@ public class DragonType {
         if(this == FIRE){
             if (egg.world.getBlockState(pos).getMaterial() == Material.FIRE) {
                 egg.setDragonAge(egg.getDragonAge() + 1);
+            }
+            if(this == LIGHTNING){
+                if (weather() == thunder) {
+                    egg.setDragonAge(egg.getDragonAge() + 1);
             }
             if (egg.getDragonAge() > IceAndFire.CONFIG.dragonEggTime) {
                 if (egg.world.getBlockState(pos).getMaterial() == Material.FIRE) {
